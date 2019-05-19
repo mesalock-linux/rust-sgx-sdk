@@ -1,0 +1,125 @@
+kind: pipeline
+name: hello-rust-cargo-1604-hw
+
+steps:
+- name: hw-test
+  image: baiduxlab/sgx-rust:1604-1.0.7
+  privileged: true
+  environment:
+    SGX_MODE: HW
+    XARGO_SGX: 0
+  volumes:
+  - name: isgx
+    path: /dev/isgx
+  - name: aesmd
+    path: /var/run/aesmd/aesm.socket
+  commands:
+  - . /opt/sgxsdk/environment
+  - . ci/one_sample.sh hello-rust
+
+volumes:
+- name: isgx
+  host:
+    path: /dev/isgx
+- name: aesmd
+  host:
+    path: /var/run/aesmd/aesm.socket
+
+node:
+  instance: sgx
+
+---
+
+kind: pipeline
+name: hello-rust-cargo-1604-sw
+
+steps:
+- name: sw-test
+  image: baiduxlab/sgx-rust:1604-1.0.7
+  privileged: true
+  environment:
+    SGX_MODE: SW
+    XARGO_SGX: 0
+  volumes:
+  - name: isgx
+    path: /dev/isgx
+  - name: aesmd
+    path: /var/run/aesmd/aesm.socket
+  commands:
+  - . /opt/sgxsdk/environment
+  - . ci/one_sample.sh hello-rust
+
+volumes:
+- name: isgx
+  host:
+    path: /dev/isgx
+- name: aesmd
+  host:
+    path: /var/run/aesmd/aesm.socket
+
+node:
+  instance: sgx
+
+---
+
+kind: pipeline
+name: hello-rust-xargo-1604-hw
+
+steps:
+- name: hw-test
+  image: baiduxlab/sgx-rust:1604-1.0.7
+  privileged: true
+  environment:
+    SGX_MODE: HW
+    XARGO_SGX: 1
+  volumes:
+  - name: isgx
+    path: /dev/isgx
+  - name: aesmd
+    path: /var/run/aesmd/aesm.socket
+  commands:
+  - . /opt/sgxsdk/environment
+  - . ci/one_sample.sh hello-rust
+
+volumes:
+- name: isgx
+  host:
+    path: /dev/isgx
+- name: aesmd
+  host:
+    path: /var/run/aesmd/aesm.socket
+
+node:
+  instance: sgx
+
+---
+
+kind: pipeline
+name: hello-rust-xargo-1604-sw
+
+steps:
+- name: sw-test
+  image: baiduxlab/sgx-rust:1604-1.0.7
+  privileged: true
+  environment:
+    SGX_MODE: SW
+    XARGO_SGX: 1
+  volumes:
+  - name: isgx
+    path: /dev/isgx
+  - name: aesmd
+    path: /var/run/aesmd/aesm.socket
+  commands:
+  - . /opt/sgxsdk/environment
+  - . ci/one_sample.sh hello-rust
+
+volumes:
+- name: isgx
+  host:
+    path: /dev/isgx
+- name: aesmd
+  host:
+    path: /var/run/aesmd/aesm.socket
+
+node:
+  instance: sgx
