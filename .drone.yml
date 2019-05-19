@@ -1,5 +1,277 @@
 kind: pipeline
-name: hello-rustc1604nightlyHW
+name: singlescargo1604nightlyHW
+
+steps:
+- name: HW-test
+  image: baiduxlab/sgx-rust:1604-1.0.7
+  privileged: true
+  environment:
+    SGX_MODE: HW
+    XARGO_SGX: 0
+  volumes:
+  - name: isgx
+    path: /dev/isgx
+  - name: aesmd
+    path: /var/run/aesmd/aesm.socket
+  commands:
+  - . /opt/sgxsdk/environment
+  - . /root/.cargo/env
+  - bash ci/single_samples.sh
+
+volumes:
+- name: isgx
+  host:
+    path: /dev/isgx
+- name: aesmd
+  host:
+    path: /var/run/aesmd/aesm.socket
+
+node:
+  instance: sgx
+
+---
+
+
+kind: pipeline
+name: singlescargo1604stableHW
+
+steps:
+- name: HW-test
+  image: baiduxlab/sgx-rust-stable:1604-1.0.7
+  privileged: true
+  environment:
+    SGX_MODE: HW
+    XARGO_SGX: 0
+  volumes:
+  - name: isgx
+    path: /dev/isgx
+  - name: aesmd
+    path: /var/run/aesmd/aesm.socket
+  commands:
+  - . /opt/sgxsdk/environment
+  - . /root/.cargo/env
+  - bash ci/single_samples.sh
+
+volumes:
+- name: isgx
+  host:
+    path: /dev/isgx
+- name: aesmd
+  host:
+    path: /var/run/aesmd/aesm.socket
+
+node:
+  instance: sgx
+
+---
+
+
+kind: pipeline
+name: singlescargo1604nightlySW
+
+steps:
+- name: SW-test
+  image: baiduxlab/sgx-rust:1604-1.0.7
+  privileged: true
+  environment:
+    SGX_MODE: SW
+    XARGO_SGX: 0
+  volumes:
+  - name: isgx
+    path: /dev/isgx
+  - name: aesmd
+    path: /var/run/aesmd/aesm.socket
+  commands:
+  - . /opt/sgxsdk/environment
+  - . /root/.cargo/env
+  - bash ci/single_samples.sh
+
+volumes:
+- name: isgx
+  host:
+    path: /dev/isgx
+- name: aesmd
+  host:
+    path: /var/run/aesmd/aesm.socket
+
+node:
+  instance: sgx
+
+---
+
+
+kind: pipeline
+name: singlescargo1604stableSW
+
+steps:
+- name: SW-test
+  image: baiduxlab/sgx-rust-stable:1604-1.0.7
+  privileged: true
+  environment:
+    SGX_MODE: SW
+    XARGO_SGX: 0
+  volumes:
+  - name: isgx
+    path: /dev/isgx
+  - name: aesmd
+    path: /var/run/aesmd/aesm.socket
+  commands:
+  - . /opt/sgxsdk/environment
+  - . /root/.cargo/env
+  - bash ci/single_samples.sh
+
+volumes:
+- name: isgx
+  host:
+    path: /dev/isgx
+- name: aesmd
+  host:
+    path: /var/run/aesmd/aesm.socket
+
+node:
+  instance: sgx
+
+---
+
+
+kind: pipeline
+name: singlescargo1804nightlyHW
+
+steps:
+- name: HW-test
+  image: baiduxlab/sgx-rust:1804-1.0.7
+  privileged: true
+  environment:
+    SGX_MODE: HW
+    XARGO_SGX: 0
+  volumes:
+  - name: isgx
+    path: /dev/isgx
+  - name: aesmd
+    path: /var/run/aesmd/aesm.socket
+  commands:
+  - . /opt/sgxsdk/environment
+  - . /root/.cargo/env
+  - bash ci/single_samples.sh
+
+volumes:
+- name: isgx
+  host:
+    path: /dev/isgx
+- name: aesmd
+  host:
+    path: /var/run/aesmd/aesm.socket
+
+node:
+  instance: sgx
+
+---
+
+
+kind: pipeline
+name: singlescargo1804stableHW
+
+steps:
+- name: HW-test
+  image: baiduxlab/sgx-rust-stable:1804-1.0.7
+  privileged: true
+  environment:
+    SGX_MODE: HW
+    XARGO_SGX: 0
+  volumes:
+  - name: isgx
+    path: /dev/isgx
+  - name: aesmd
+    path: /var/run/aesmd/aesm.socket
+  commands:
+  - . /opt/sgxsdk/environment
+  - . /root/.cargo/env
+  - bash ci/single_samples.sh
+
+volumes:
+- name: isgx
+  host:
+    path: /dev/isgx
+- name: aesmd
+  host:
+    path: /var/run/aesmd/aesm.socket
+
+node:
+  instance: sgx
+
+---
+
+
+kind: pipeline
+name: singlescargo1804nightlySW
+
+steps:
+- name: SW-test
+  image: baiduxlab/sgx-rust:1804-1.0.7
+  privileged: true
+  environment:
+    SGX_MODE: SW
+    XARGO_SGX: 0
+  volumes:
+  - name: isgx
+    path: /dev/isgx
+  - name: aesmd
+    path: /var/run/aesmd/aesm.socket
+  commands:
+  - . /opt/sgxsdk/environment
+  - . /root/.cargo/env
+  - bash ci/single_samples.sh
+
+volumes:
+- name: isgx
+  host:
+    path: /dev/isgx
+- name: aesmd
+  host:
+    path: /var/run/aesmd/aesm.socket
+
+node:
+  instance: sgx
+
+---
+
+
+kind: pipeline
+name: singlescargo1804stableSW
+
+steps:
+- name: SW-test
+  image: baiduxlab/sgx-rust-stable:1804-1.0.7
+  privileged: true
+  environment:
+    SGX_MODE: SW
+    XARGO_SGX: 0
+  volumes:
+  - name: isgx
+    path: /dev/isgx
+  - name: aesmd
+    path: /var/run/aesmd/aesm.socket
+  commands:
+  - . /opt/sgxsdk/environment
+  - . /root/.cargo/env
+  - bash ci/single_samples.sh
+
+volumes:
+- name: isgx
+  host:
+    path: /dev/isgx
+- name: aesmd
+  host:
+    path: /var/run/aesmd/aesm.socket
+
+node:
+  instance: sgx
+
+---
+
+
+kind: pipeline
+name: singlesxargo1604nightlyHW
 
 steps:
 - name: HW-test
@@ -16,7 +288,7 @@ steps:
   commands:
   - . /opt/sgxsdk/environment
   - . /root/.cargo/env
-  - bash ci/one_sample.sh hello-rust
+  - bash ci/single_samples.sh
 
 volumes:
 - name: isgx
@@ -33,7 +305,7 @@ node:
 
 
 kind: pipeline
-name: hello-rustc1604stableHW
+name: singlesxargo1604stableHW
 
 steps:
 - name: HW-test
@@ -50,7 +322,7 @@ steps:
   commands:
   - . /opt/sgxsdk/environment
   - . /root/.cargo/env
-  - bash ci/one_sample.sh hello-rust
+  - bash ci/single_samples.sh
 
 volumes:
 - name: isgx
@@ -67,7 +339,7 @@ node:
 
 
 kind: pipeline
-name: hello-rustc1604nightlySW
+name: singlesxargo1604nightlySW
 
 steps:
 - name: SW-test
@@ -84,7 +356,7 @@ steps:
   commands:
   - . /opt/sgxsdk/environment
   - . /root/.cargo/env
-  - bash ci/one_sample.sh hello-rust
+  - bash ci/single_samples.sh
 
 volumes:
 - name: isgx
@@ -101,7 +373,7 @@ node:
 
 
 kind: pipeline
-name: hello-rustc1604stableSW
+name: singlesxargo1604stableSW
 
 steps:
 - name: SW-test
@@ -118,7 +390,7 @@ steps:
   commands:
   - . /opt/sgxsdk/environment
   - . /root/.cargo/env
-  - bash ci/one_sample.sh hello-rust
+  - bash ci/single_samples.sh
 
 volumes:
 - name: isgx
@@ -135,7 +407,7 @@ node:
 
 
 kind: pipeline
-name: hello-rustc1804nightlyHW
+name: singlesxargo1804nightlyHW
 
 steps:
 - name: HW-test
@@ -152,7 +424,7 @@ steps:
   commands:
   - . /opt/sgxsdk/environment
   - . /root/.cargo/env
-  - bash ci/one_sample.sh hello-rust
+  - bash ci/single_samples.sh
 
 volumes:
 - name: isgx
@@ -169,7 +441,7 @@ node:
 
 
 kind: pipeline
-name: hello-rustc1804stableHW
+name: singlesxargo1804stableHW
 
 steps:
 - name: HW-test
@@ -186,7 +458,7 @@ steps:
   commands:
   - . /opt/sgxsdk/environment
   - . /root/.cargo/env
-  - bash ci/one_sample.sh hello-rust
+  - bash ci/single_samples.sh
 
 volumes:
 - name: isgx
@@ -203,7 +475,7 @@ node:
 
 
 kind: pipeline
-name: hello-rustc1804nightlySW
+name: singlesxargo1804nightlySW
 
 steps:
 - name: SW-test
@@ -220,7 +492,7 @@ steps:
   commands:
   - . /opt/sgxsdk/environment
   - . /root/.cargo/env
-  - bash ci/one_sample.sh hello-rust
+  - bash ci/single_samples.sh
 
 volumes:
 - name: isgx
@@ -237,7 +509,7 @@ node:
 
 
 kind: pipeline
-name: hello-rustc1804stableSW
+name: singlesxargo1804stableSW
 
 steps:
 - name: SW-test
@@ -254,279 +526,7 @@ steps:
   commands:
   - . /opt/sgxsdk/environment
   - . /root/.cargo/env
-  - bash ci/one_sample.sh hello-rust
-
-volumes:
-- name: isgx
-  host:
-    path: /dev/isgx
-- name: aesmd
-  host:
-    path: /var/run/aesmd/aesm.socket
-
-node:
-  instance: sgx
-
----
-
-
-kind: pipeline
-name: hello-rustx1604nightlyHW
-
-steps:
-- name: HW-test
-  image: baiduxlab/sgx-rust:1604-1.0.7
-  privileged: true
-  environment:
-    SGX_MODE: HW
-    XARGO_SGX: 1
-  volumes:
-  - name: isgx
-    path: /dev/isgx
-  - name: aesmd
-    path: /var/run/aesmd/aesm.socket
-  commands:
-  - . /opt/sgxsdk/environment
-  - . /root/.cargo/env
-  - bash ci/one_sample.sh hello-rust
-
-volumes:
-- name: isgx
-  host:
-    path: /dev/isgx
-- name: aesmd
-  host:
-    path: /var/run/aesmd/aesm.socket
-
-node:
-  instance: sgx
-
----
-
-
-kind: pipeline
-name: hello-rustx1604stableHW
-
-steps:
-- name: HW-test
-  image: baiduxlab/sgx-rust-stable:1604-1.0.7
-  privileged: true
-  environment:
-    SGX_MODE: HW
-    XARGO_SGX: 1
-  volumes:
-  - name: isgx
-    path: /dev/isgx
-  - name: aesmd
-    path: /var/run/aesmd/aesm.socket
-  commands:
-  - . /opt/sgxsdk/environment
-  - . /root/.cargo/env
-  - bash ci/one_sample.sh hello-rust
-
-volumes:
-- name: isgx
-  host:
-    path: /dev/isgx
-- name: aesmd
-  host:
-    path: /var/run/aesmd/aesm.socket
-
-node:
-  instance: sgx
-
----
-
-
-kind: pipeline
-name: hello-rustx1604nightlySW
-
-steps:
-- name: SW-test
-  image: baiduxlab/sgx-rust:1604-1.0.7
-  privileged: true
-  environment:
-    SGX_MODE: SW
-    XARGO_SGX: 1
-  volumes:
-  - name: isgx
-    path: /dev/isgx
-  - name: aesmd
-    path: /var/run/aesmd/aesm.socket
-  commands:
-  - . /opt/sgxsdk/environment
-  - . /root/.cargo/env
-  - bash ci/one_sample.sh hello-rust
-
-volumes:
-- name: isgx
-  host:
-    path: /dev/isgx
-- name: aesmd
-  host:
-    path: /var/run/aesmd/aesm.socket
-
-node:
-  instance: sgx
-
----
-
-
-kind: pipeline
-name: hello-rustx1604stableSW
-
-steps:
-- name: SW-test
-  image: baiduxlab/sgx-rust-stable:1604-1.0.7
-  privileged: true
-  environment:
-    SGX_MODE: SW
-    XARGO_SGX: 1
-  volumes:
-  - name: isgx
-    path: /dev/isgx
-  - name: aesmd
-    path: /var/run/aesmd/aesm.socket
-  commands:
-  - . /opt/sgxsdk/environment
-  - . /root/.cargo/env
-  - bash ci/one_sample.sh hello-rust
-
-volumes:
-- name: isgx
-  host:
-    path: /dev/isgx
-- name: aesmd
-  host:
-    path: /var/run/aesmd/aesm.socket
-
-node:
-  instance: sgx
-
----
-
-
-kind: pipeline
-name: hello-rustx1804nightlyHW
-
-steps:
-- name: HW-test
-  image: baiduxlab/sgx-rust:1804-1.0.7
-  privileged: true
-  environment:
-    SGX_MODE: HW
-    XARGO_SGX: 1
-  volumes:
-  - name: isgx
-    path: /dev/isgx
-  - name: aesmd
-    path: /var/run/aesmd/aesm.socket
-  commands:
-  - . /opt/sgxsdk/environment
-  - . /root/.cargo/env
-  - bash ci/one_sample.sh hello-rust
-
-volumes:
-- name: isgx
-  host:
-    path: /dev/isgx
-- name: aesmd
-  host:
-    path: /var/run/aesmd/aesm.socket
-
-node:
-  instance: sgx
-
----
-
-
-kind: pipeline
-name: hello-rustx1804stableHW
-
-steps:
-- name: HW-test
-  image: baiduxlab/sgx-rust-stable:1804-1.0.7
-  privileged: true
-  environment:
-    SGX_MODE: HW
-    XARGO_SGX: 1
-  volumes:
-  - name: isgx
-    path: /dev/isgx
-  - name: aesmd
-    path: /var/run/aesmd/aesm.socket
-  commands:
-  - . /opt/sgxsdk/environment
-  - . /root/.cargo/env
-  - bash ci/one_sample.sh hello-rust
-
-volumes:
-- name: isgx
-  host:
-    path: /dev/isgx
-- name: aesmd
-  host:
-    path: /var/run/aesmd/aesm.socket
-
-node:
-  instance: sgx
-
----
-
-
-kind: pipeline
-name: hello-rustx1804nightlySW
-
-steps:
-- name: SW-test
-  image: baiduxlab/sgx-rust:1804-1.0.7
-  privileged: true
-  environment:
-    SGX_MODE: SW
-    XARGO_SGX: 1
-  volumes:
-  - name: isgx
-    path: /dev/isgx
-  - name: aesmd
-    path: /var/run/aesmd/aesm.socket
-  commands:
-  - . /opt/sgxsdk/environment
-  - . /root/.cargo/env
-  - bash ci/one_sample.sh hello-rust
-
-volumes:
-- name: isgx
-  host:
-    path: /dev/isgx
-- name: aesmd
-  host:
-    path: /var/run/aesmd/aesm.socket
-
-node:
-  instance: sgx
-
----
-
-
-kind: pipeline
-name: hello-rustx1804stableSW
-
-steps:
-- name: SW-test
-  image: baiduxlab/sgx-rust-stable:1804-1.0.7
-  privileged: true
-  environment:
-    SGX_MODE: SW
-    XARGO_SGX: 1
-  volumes:
-  - name: isgx
-    path: /dev/isgx
-  - name: aesmd
-    path: /var/run/aesmd/aesm.socket
-  commands:
-  - . /opt/sgxsdk/environment
-  - . /root/.cargo/env
-  - bash ci/one_sample.sh hello-rust
+  - bash ci/single_samples.sh
 
 volumes:
 - name: isgx
