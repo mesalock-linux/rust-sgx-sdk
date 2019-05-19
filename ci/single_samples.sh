@@ -31,7 +31,7 @@ test_one_single() {
     cd ${RUST_SDK_ROOT}/samplecode/$1 && \
     make && \
     cd bin && \
-    ./app && echo "Success!"
+    ./app > /dev/null && echo "Success!"
 }
 
 for i in ${SINGLE_EXAMPLES[@]}
