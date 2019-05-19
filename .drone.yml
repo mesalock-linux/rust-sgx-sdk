@@ -15,6 +15,7 @@ steps:
     path: /var/run/aesmd/aesm.socket
   commands:
   - . /opt/sgxsdk/environment
+  - . /root/.cargo/env
   - bash ci/one_sample.sh hello-rust
 
 volumes:
@@ -47,6 +48,7 @@ steps:
     path: /var/run/aesmd/aesm.socket
   commands:
   - . /opt/sgxsdk/environment
+  - . /root/.cargo/env
   - bash ci/one_sample.sh hello-rust
 
 volumes:
@@ -79,6 +81,7 @@ steps:
     path: /var/run/aesmd/aesm.socket
   commands:
   - . /opt/sgxsdk/environment
+  - . /root/.cargo/env
   - bash ci/one_sample.sh hello-rust
 
 volumes:
@@ -111,6 +114,7 @@ steps:
     path: /var/run/aesmd/aesm.socket
   commands:
   - . /opt/sgxsdk/environment
+  - . /root/.cargo/env
   - bash ci/one_sample.sh hello-rust
 
 volumes:
