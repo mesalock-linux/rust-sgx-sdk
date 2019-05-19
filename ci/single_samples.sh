@@ -16,7 +16,6 @@ SINGLE_EXAMPLES=(backtrace \
                  kvdb-memdb \
                  localattestation \
                  machine-learning \
-                 net2 \
                  protobuf \
                  sealeddata \
                  serialize \
