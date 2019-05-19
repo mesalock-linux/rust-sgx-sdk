@@ -15,7 +15,7 @@ steps:
     path: /var/run/aesmd/aesm.socket
   commands:
   - . /opt/sgxsdk/environment
-  - . ci/one_sample.sh hello-rust
+  - bash ci/one_sample.sh hello-rust
 
 volumes:
 - name: isgx
@@ -47,7 +47,7 @@ steps:
     path: /var/run/aesmd/aesm.socket
   commands:
   - . /opt/sgxsdk/environment
-  - . ci/one_sample.sh hello-rust
+  - bash ci/one_sample.sh hello-rust
 
 volumes:
 - name: isgx
@@ -79,7 +79,7 @@ steps:
     path: /var/run/aesmd/aesm.socket
   commands:
   - . /opt/sgxsdk/environment
-  - . ci/one_sample.sh hello-rust
+  - bash ci/one_sample.sh hello-rust
 
 volumes:
 - name: isgx
@@ -111,7 +111,7 @@ steps:
     path: /var/run/aesmd/aesm.socket
   commands:
   - . /opt/sgxsdk/environment
-  - . ci/one_sample.sh hello-rust
+  - bash ci/one_sample.sh hello-rust
 
 volumes:
 - name: isgx
