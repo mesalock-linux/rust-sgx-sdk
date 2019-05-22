@@ -266,4 +266,3 @@ volumes:
 
 node:
   instance: sgx
-
