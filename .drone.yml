@@ -3,7 +3,7 @@ name: singlescargo1604HW
 
 steps:
 - name: HW-test
-  image: baiduxlab/sgx-rust:1604-1.0.8
+  image: baiduxlab/sgx-rust:1604-1.0.9
   privileged: true
   environment:
     SGX_MODE: HW
@@ -37,7 +37,7 @@ name: singlescargo1604SW
 
 steps:
 - name: SW-test
-  image: baiduxlab/sgx-rust:1604-1.0.8
+  image: baiduxlab/sgx-rust:1604-1.0.9
   privileged: true
   environment:
     SGX_MODE: SW
@@ -71,7 +71,7 @@ name: singlescargo1804HW
 
 steps:
 - name: HW-test
-  image: baiduxlab/sgx-rust:1804-1.0.8
+  image: baiduxlab/sgx-rust:1804-1.0.9
   privileged: true
   environment:
     SGX_MODE: HW
@@ -105,7 +105,7 @@ name: singlescargo1804SW
 
 steps:
 - name: SW-test
-  image: baiduxlab/sgx-rust:1804-1.0.8
+  image: baiduxlab/sgx-rust:1804-1.0.9
   privileged: true
   environment:
     SGX_MODE: SW
@@ -139,7 +139,7 @@ name: singlesxargo1604HW
 
 steps:
 - name: HW-test
-  image: baiduxlab/sgx-rust:1604-1.0.8
+  image: baiduxlab/sgx-rust:1604-1.0.9
   privileged: true
   environment:
     SGX_MODE: HW
@@ -173,7 +173,7 @@ name: singlesxargo1604SW
 
 steps:
 - name: SW-test
-  image: baiduxlab/sgx-rust:1604-1.0.8
+  image: baiduxlab/sgx-rust:1604-1.0.9
   privileged: true
   environment:
     SGX_MODE: SW
@@ -207,7 +207,7 @@ name: singlesxargo1804HW
 
 steps:
 - name: HW-test
-  image: baiduxlab/sgx-rust:1804-1.0.8
+  image: baiduxlab/sgx-rust:1804-1.0.9
   privileged: true
   environment:
     SGX_MODE: HW
@@ -241,7 +241,7 @@ name: singlesxargo1804SW
 
 steps:
 - name: SW-test
-  image: baiduxlab/sgx-rust:1804-1.0.8
+  image: baiduxlab/sgx-rust:1804-1.0.9
   privileged: true
   environment:
     SGX_MODE: SW
