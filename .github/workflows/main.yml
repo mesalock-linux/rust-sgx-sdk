@@ -16,6 +16,7 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
         echo this is the first job
+        echo $DUMB_SECRET
   second-job:
     runs-on: self-hosted
     steps:
@@ -25,4 +26,5 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
         echo this is the second job
+        echo $DUMB_SECRET
 
