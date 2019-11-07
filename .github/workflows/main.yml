@@ -1,0 +1,27 @@
+name: CI
+
+on: [push]
+
+jobs:
+  first-job:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v1
+    - name: this is a dummy name
+      run: |
+        ls -alg /dev/isgx
+        ls -alg /var/run/aesmd/aesm.socket
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
+        echo this is the first job
+  second-job:
+    runs-on: self-hosted
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
+        echo this is the second job
