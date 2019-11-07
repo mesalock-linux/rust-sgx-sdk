@@ -27,4 +27,3 @@ jobs:
         echo test, and deploy your project.
         echo this is the second job
         echo $DUMB_SECRET
-
